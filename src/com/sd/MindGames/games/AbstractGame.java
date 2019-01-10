@@ -1,4 +1,9 @@
 package com.sd.MindGames.games;
 
-public class AbstractGame {
+public abstract class AbstractGame {
+
+
+    public void load(){
+
+    }
 }
