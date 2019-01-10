@@ -27,7 +27,7 @@ public class Main {
             playThisGame=true;
 
             System.out.println("");
-            System.out.println("Listes des jeux:");
+            System.out.println("Liste des jeux:");
             System.out.println("Recherche + ou - : 1");
             System.out.println("MasterMind : 2");
             System.out.println("Votre choix?");

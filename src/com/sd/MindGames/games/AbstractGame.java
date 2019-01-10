@@ -6,4 +6,6 @@ public abstract class AbstractGame {
     public void load(){
 
     }
+
+
 }
