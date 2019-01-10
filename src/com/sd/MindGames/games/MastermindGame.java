@@ -1,5 +1,7 @@
 package com.sd.MindGames.games;
 
+import com.sd.MindGames.utils.ReadProperties;
+
 public class MastermindGame extends AbstractGame {
 
 
@@ -10,6 +12,7 @@ public class MastermindGame extends AbstractGame {
     @Override
     public void load() {
         super.load();
-        System.out.println("MasterMind!!!!");
+        int nb=ReadProperties.ReadIntFromProperties("nombreEssais");
+        System.out.println("MasterMind!!!!"+ nb);
     }
 }

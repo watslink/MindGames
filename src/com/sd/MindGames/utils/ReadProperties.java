@@ -1,7 +1,6 @@
 package com.sd.MindGames.utils;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -18,7 +17,7 @@ public  class ReadProperties {
             e.printStackTrace();
         }
 
-        return Integer.getInteger(prop.getProperty(propString));
+        return Integer.parseInt(prop.getProperty(propString));
 
     }
 
