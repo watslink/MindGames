@@ -1,4 +1,4 @@
 package com.sd.MindGames.modes;
 
-public class Defenseur {
+public class Defenseur extends Mode {
 }

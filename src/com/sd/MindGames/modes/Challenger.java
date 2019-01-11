@@ -1,4 +1,4 @@
 package com.sd.MindGames.modes;
 
-public class Challenger {
+public class Challenger extends Mode {
 }

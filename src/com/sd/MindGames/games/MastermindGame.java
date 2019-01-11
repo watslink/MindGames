@@ -1,6 +1,6 @@
 package com.sd.MindGames.games;
 
-import com.sd.MindGames.utils.ReadProperties;
+
 
 public class MastermindGame extends AbstractGame {
 
@@ -9,13 +9,9 @@ public class MastermindGame extends AbstractGame {
         super();
     }
 
-    @Override
-    protected int setCombinaisonSecrete() {
-        return 0;
-    }
 
     @Override
-    protected String setReponse() {
+    protected String compareCombinaisons(int[] combinaisonSecrete, int[] reponse) {
         return null;
     }
 

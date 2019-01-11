@@ -1,18 +1,16 @@
 package com.sd.MindGames.games;
 
+import com.sd.MindGames.modes.Mode;
+
 public class RechercheGame extends AbstractGame {
 
     public RechercheGame(){
         super();
     }
 
-    @Override
-    protected int setCombinaisonSecrete() {
-        return 0;
-    }
 
     @Override
-    protected String setReponse() {
+    protected String compareCombinaisons(int[] combinaisonSecrete, int[] reponse) {
         return null;
     }
 
