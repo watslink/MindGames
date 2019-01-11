@@ -3,17 +3,19 @@ package com.sd.MindGames;
 import com.sd.MindGames.games.AbstractGame;
 import com.sd.MindGames.games.MastermindGame;
 import com.sd.MindGames.games.RechercheGame;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
 
 import java.util.Scanner;
 
 public class Main {
 
-    private static Logger logger = Logger.getLogger(Main.class);
+    private static  Logger logger = LogManager.getLogger("Main");
 
     public static void main(String[] args) {
 
-
+        logger.debug("Hello world.");
         Scanner sc = new Scanner(System.in);
         boolean playAnotherGame=true;
         boolean playThisGame=true;

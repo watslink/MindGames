@@ -12,7 +12,7 @@ public class MastermindGame extends AbstractGame {
     @Override
     public void load() {
         super.load();
-        int nb=ReadProperties.ReadIntFromProperties("nombreEssais");
+        int nb=ReadProperties.readIntFromProperties("nombreEssais");
         System.out.println("MasterMind!!!!"+ nb);
     }
 }

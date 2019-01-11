@@ -6,7 +6,8 @@ import java.util.Properties;
 
 public  class ReadProperties {
 
-    public  static int ReadIntFromProperties(String propString) {
+
+    public  static String readStringFromProperties(String propString) {
 
         Properties prop=new Properties();
         FileInputStream ip;
@@ -17,7 +18,16 @@ public  class ReadProperties {
             e.printStackTrace();
         }
 
-        return Integer.parseInt(prop.getProperty(propString));
+        return prop.getProperty(propString);
+
+    }
+
+
+
+    public  static int readIntFromProperties(String propString) {
+
+
+        return Integer.parseInt(readStringFromProperties(propString));
 
     }
 
