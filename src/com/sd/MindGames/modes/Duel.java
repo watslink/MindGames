@@ -7,4 +7,9 @@ public class Duel extends Mode {
     public Duel(Game game){
         super(game);
     }
+
+    @Override
+    public void start() {
+
+    }
 }

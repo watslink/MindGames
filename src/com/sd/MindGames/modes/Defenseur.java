@@ -7,4 +7,9 @@ public class Defenseur extends Mode {
     public Defenseur(Game game){
         super(game);
     }
+
+    @Override
+    public void start() {
+
+    }
 }
