@@ -8,13 +8,12 @@ public class MastermindGame extends Game {
 
     public MastermindGame(){
         super();
-        setLongueurCombinaison(ReadProperties.readIntFromProperties("longeurCombinaison"));
-        setNombreChiffresDifferents(ReadProperties.readIntFromProperties("nombreChiffresDifferents"));
+        nombreChiffresDifferents=ReadProperties.readIntFromProperties("nombreChiffresDifferents");
     }
 
 
     @Override
-    protected String compareCombinaisons(int[] combinaisonSecrete, int[] reponse) {
+    public String compareCombinaisons(int[] combinaisonSecrete, int[] reponse) {
         return null;
     }
 

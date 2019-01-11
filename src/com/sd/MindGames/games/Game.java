@@ -7,29 +7,29 @@ public abstract class Game {
 
 
    private int longueurCombinaison;
-   private int nombreChiffresDifferents;
+   private int nombreEssais;
+   protected int nombreChiffresDifferents;
+
+
 
     public Game(){
-
+        longueurCombinaison=ReadProperties.readIntFromProperties("longeurCombinaison");
+        nombreEssais=ReadProperties.readIntFromProperties("nombreEssais");
     }
 
 
-    protected abstract String compareCombinaisons(int[] combinaisonSecrete, int[] reponse);
+    public abstract String compareCombinaisons(int[] combinaisonSecrete, int[] reponse);
 
 
     public int getLongueurCombinaison() {
         return longueurCombinaison;
     }
 
-    public void setLongueurCombinaison(int longueurCombinaison) {
-        this.longueurCombinaison = longueurCombinaison;
-    }
+    public int getNombreEssais() {return nombreEssais;}
 
     public int getNombreChiffresDifferents() {
         return nombreChiffresDifferents;
     }
 
-    public void setNombreChiffresDifferents(int nombreChiffresDifferents) {
-        this.nombreChiffresDifferents = nombreChiffresDifferents;
-    }
+
 }

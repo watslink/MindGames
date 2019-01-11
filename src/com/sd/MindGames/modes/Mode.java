@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 public abstract class Mode {
 
-    private Game game;
+    protected Game game;
     protected Scanner sc = new Scanner(System.in);
+    protected boolean win;
 
     public Mode (Game newGame){
         game=newGame;
@@ -15,9 +16,6 @@ public abstract class Mode {
 
     public abstract void start();
 
-    public Game getGame() {
-        return game;
-    }
 
     public int[] convertNumberToTabOfInt(int number){
         String str=""+number;

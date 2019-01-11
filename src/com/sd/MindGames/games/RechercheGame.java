@@ -6,13 +6,12 @@ public class RechercheGame extends Game {
 
     public RechercheGame(){
         super();
-        setLongueurCombinaison(ReadProperties.readIntFromProperties("longeurCombinaison"));
-        setNombreChiffresDifferents(10);
+        nombreChiffresDifferents=10;
     }
 
 
     @Override
-    protected String compareCombinaisons(int[] combinaisonSecrete, int[] reponse) {
+    public String compareCombinaisons(int[] combinaisonSecrete, int[] reponse) {
         return null;
     }
 

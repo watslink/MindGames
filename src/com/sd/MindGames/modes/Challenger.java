@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Challenger extends Mode {
 
     BotPlayer bot;
+    int[]response;
 
 
     public Challenger(Game game){
@@ -19,15 +20,25 @@ public class Challenger extends Mode {
     @Override
     public void start() {
 
-        bot.createCombinaisonSecreteAleatoire(getGame().getLongueurCombinaison(), getGame().getNombreChiffresDifferents());
+        bot.createCombinaisonSecreteAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents());
 
-        System.out.println("Proposition: ");
+        win=false;
+        int i=0;
 
+            while(i<game.getNombreEssais() && !win){
+                System.out.println("Proposition: ");
 
+                response=convertNumberToTabOfInt(sc.nextInt());
 
-
+                if(checkFormatOfResponse(response)) {
+                    String str=game.compareCombinaisons(bot.getCombinaisonSecrete(), response);
+                    System.out.println(str);
+                    if(str.equals("gagné!")){win=true;}
+                    i++;
+                }
+                else
+                    System.out.println("Erreur dans la saisie");
+            }
     }
-
-
 
 }

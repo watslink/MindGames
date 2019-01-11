@@ -100,7 +100,7 @@ public class Main {
 
                 switch (nbRetry) {
                     case 1:
-                        mode.toString();
+                        mode.start();
                         break;
                     case 2:
                         playThisGame=false;
