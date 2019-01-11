@@ -3,12 +3,18 @@ package com.sd.MindGames.games;
 public class RechercheGame extends AbstractGame {
 
     public RechercheGame(){
-        load();
+        super();
     }
 
     @Override
-    public void load() {
-        super.load();
-        System.out.println(" + ou - !!!!");
+    protected int setCombinaisonSecrete() {
+        return 0;
     }
+
+    @Override
+    protected String setReponse() {
+        return null;
+    }
+
+
 }

@@ -6,13 +6,18 @@ public class MastermindGame extends AbstractGame {
 
 
     public MastermindGame(){
-        load();
+        super();
     }
 
     @Override
-    public void load() {
-        super.load();
-        int nb=ReadProperties.readIntFromProperties("nombreEssais");
-        System.out.println("MasterMind!!!!"+ nb);
+    protected int setCombinaisonSecrete() {
+        return 0;
     }
+
+    @Override
+    protected String setReponse() {
+        return null;
+    }
+
+
 }
