@@ -1,6 +1,6 @@
 package com.sd.MindGames;
 
-import com.sd.MindGames.games.AbstractGame;
+import com.sd.MindGames.games.Game;
 import com.sd.MindGames.games.MastermindGame;
 import com.sd.MindGames.games.RechercheGame;
 import com.sd.MindGames.modes.Challenger;
@@ -23,7 +23,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         boolean playAnotherGame=true;
         boolean playThisGame=true;
-        AbstractGame newGame = null;
+        Game newGame = null;
         int nbJeu=0;
         int nbMode=0;
         int nbRetry=0;

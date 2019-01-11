@@ -1,10 +1,10 @@
 package com.sd.MindGames.modes;
 
-import com.sd.MindGames.games.AbstractGame;
+import com.sd.MindGames.games.Game;
 
 public class Duel extends Mode {
 
-    public Duel(AbstractGame game){
+    public Duel(Game game){
         super(game);
     }
 }

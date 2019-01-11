@@ -1,13 +1,18 @@
 package com.sd.MindGames.player;
 
-public abstract class Player {
+public class Player {
 
     private int[] combinaisonSecrete;
 
     public Player(){
     }
 
-    public abstract void setCombinaisonSecrete();
 
+    public int[] getCombinaisonSecrete() {
+        return combinaisonSecrete;
+    }
 
+    public void setCombinaisonSecrete(int[] combinaisonSecrete) {
+        this.combinaisonSecrete = combinaisonSecrete;
+    }
 }

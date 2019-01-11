@@ -1,10 +1,10 @@
 package com.sd.MindGames.modes;
 
-import com.sd.MindGames.games.AbstractGame;
+import com.sd.MindGames.games.Game;
 
 public class Defenseur extends Mode {
 
-    public Defenseur(AbstractGame game){
+    public Defenseur(Game game){
         super(game);
     }
 }

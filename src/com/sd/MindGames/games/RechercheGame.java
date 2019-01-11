@@ -1,9 +1,8 @@
 package com.sd.MindGames.games;
 
-import com.sd.MindGames.modes.Mode;
 import com.sd.MindGames.utils.ReadProperties;
 
-public class RechercheGame extends AbstractGame {
+public class RechercheGame extends Game {
 
     public RechercheGame(){
         super();

@@ -3,7 +3,7 @@ package com.sd.MindGames.games;
 
 import com.sd.MindGames.utils.ReadProperties;
 
-public class MastermindGame extends AbstractGame {
+public class MastermindGame extends Game {
 
 
     public MastermindGame(){

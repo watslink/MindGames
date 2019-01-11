@@ -3,13 +3,13 @@ package com.sd.MindGames.games;
 import com.sd.MindGames.modes.Mode;
 import com.sd.MindGames.utils.ReadProperties;
 
-public abstract class AbstractGame {
+public abstract class Game {
 
 
    private int longueurCombinaison;
    private int nombreChiffresDifferents;
 
-    public AbstractGame(){
+    public Game(){
 
     }
 
