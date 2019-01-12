@@ -1,6 +1,5 @@
 package com.sd.MindGames.games;
 
-import com.sd.MindGames.utils.ReadProperties;
 
 public class RechercheGame extends Game {
 
@@ -11,8 +10,27 @@ public class RechercheGame extends Game {
 
 
     @Override
-    public String compareCombinaisons(int[] combinaisonSecrete, int[] reponse) {
-        return null;
+    public String compareCombinaisons(int[] combinaisonSecrete, int[] response) {
+        responseString="Réponse : ";
+        valeurOk=0;
+
+        for(int i=0; i<longueurCombinaison;i++)
+        {
+            if (combinaisonSecrete[i]==response[i]) {
+                responseString=responseString+"=";
+                valeurOk++;
+            }
+            if (combinaisonSecrete[i]<response[i]) {responseString=responseString+"-";}
+            if (combinaisonSecrete[i]>response[i]) {responseString=responseString+"+";}
+
+
+        }
+            if(valeurOk==longueurCombinaison){
+                return getVICTORY();
+            }
+            else{
+                return responseString;
+            }
     }
 
 

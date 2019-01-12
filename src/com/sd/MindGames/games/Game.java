@@ -6,15 +6,21 @@ import com.sd.MindGames.utils.ReadProperties;
 public abstract class Game {
 
 
-   private int longueurCombinaison;
-   private int nombreEssais;
+   protected int longueurCombinaison;
+   protected int nombreEssais;
    protected int nombreChiffresDifferents;
+   protected String responseString;
+   protected int valeurOk;
+   protected boolean winGame;
+   protected static String VICTORY="Vous avez gagné!! Félicitation!!";
 
 
 
     public Game(){
-        longueurCombinaison=ReadProperties.readIntFromProperties("longeurCombinaison");
+        longueurCombinaison=ReadProperties.readIntFromProperties("longueurCombinaison");
         nombreEssais=ReadProperties.readIntFromProperties("nombreEssais");
+
+
     }
 
 
@@ -31,5 +37,7 @@ public abstract class Game {
         return nombreChiffresDifferents;
     }
 
-
+    public static String getVICTORY() {
+        return VICTORY;
+    }
 }

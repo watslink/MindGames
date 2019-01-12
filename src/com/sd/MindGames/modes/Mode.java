@@ -17,8 +17,8 @@ public abstract class Mode {
     public abstract void start();
 
 
-    public int[] convertNumberToTabOfInt(int number){
-        String str=""+number;
+    public int[] convertStringToTabOfInt(String str){
+
         int[] tab = new int[str.length()];
         for ( int i=0; i<str.length(); i++) {
             tab[i] = Integer.parseInt("" + str.charAt(i));
@@ -27,8 +27,10 @@ public abstract class Mode {
     }
 
     public boolean checkFormatOfResponse(int[] response){
-        if(response.length != game.getLongueurCombinaison())
-            return false;
+        if(response.length != game.getLongueurCombinaison()){
+           return false;
+        }
+
 
         for (int i=0; i<response.length; i++)
         {

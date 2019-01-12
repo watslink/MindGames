@@ -14,7 +14,7 @@ public class Challenger extends Mode {
     public Challenger(Game game){
         super(game);
         bot= new BotPlayer();
-
+        start();
     }
 
     @Override
@@ -28,12 +28,12 @@ public class Challenger extends Mode {
             while(i<game.getNombreEssais() && !win){
                 System.out.println("Proposition: ");
 
-                response=convertNumberToTabOfInt(sc.nextInt());
+                response=convertStringToTabOfInt(sc.nextLine());
 
                 if(checkFormatOfResponse(response)) {
                     String str=game.compareCombinaisons(bot.getCombinaisonSecrete(), response);
                     System.out.println(str);
-                    if(str.equals("gagné!")){win=true;}
+                    if(str.equals(Game.getVICTORY())){win=true;}
                     i++;
                 }
                 else

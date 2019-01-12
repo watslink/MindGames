@@ -8,7 +8,7 @@ public class BotPlayer extends Player{
 
     public void createCombinaisonSecreteAleatoire(int longeurCombinaison, int nombreChiffresDifferents){
 
-        int[] combinaisonSecrete=new int[longeurCombinaison-1];
+        int[] combinaisonSecrete=new int[longeurCombinaison];
 
         for(int i=0;  i<longeurCombinaison; i++){
             combinaisonSecrete[i]=r.nextInt(nombreChiffresDifferents);
