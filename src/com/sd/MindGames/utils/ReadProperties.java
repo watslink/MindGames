@@ -7,7 +7,10 @@ import java.util.Properties;
 public  class ReadProperties {
 
 
-    public  static String readStringFromProperties(String propString) {
+
+
+
+    public  static String readStringFromProperties(String propKey) {
 
         Properties prop=new Properties();
         FileInputStream ip;
@@ -18,7 +21,7 @@ public  class ReadProperties {
             e.printStackTrace();
         }
 
-        return prop.getProperty(propString);
+        return prop.getProperty(propKey);
 
     }
 
@@ -28,6 +31,13 @@ public  class ReadProperties {
 
 
         return Integer.parseInt(readStringFromProperties(propString));
+
+    }
+
+    public  static boolean readBooleanFromProperties(String propString) {
+
+
+        return Boolean.parseBoolean(readStringFromProperties(propString));
 
     }
 

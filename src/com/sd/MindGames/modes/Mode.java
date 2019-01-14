@@ -18,12 +18,19 @@ public abstract class Mode {
 
 
     public int[] convertStringToTabOfInt(String str){
+        int[] tab;
 
-        int[] tab = new int[str.length()];
-        for ( int i=0; i<str.length(); i++) {
-            tab[i] = Integer.parseInt("" + str.charAt(i));
-        }
+        try{
+            tab = new int[str.length()];
+            for ( int i=0; i<str.length(); i++) {
+                tab[i] = Integer.parseInt("" + str.charAt(i));
+            }
             return tab;
+        }
+        catch (NumberFormatException e){
+            return tab=null;
+        }
+
     }
 
     public boolean checkFormatOfResponse(int[] response){
