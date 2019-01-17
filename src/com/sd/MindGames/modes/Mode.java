@@ -1,6 +1,8 @@
 package com.sd.MindGames.modes;
 
 import com.sd.MindGames.games.Game;
+import com.sd.MindGames.player.BotPlayer;
+import com.sd.MindGames.player.Player;
 
 import java.util.Scanner;
 
@@ -9,9 +11,13 @@ public abstract class Mode {
     protected Game game;
     protected Scanner sc = new Scanner(System.in);
     protected boolean win;
+    protected Player player;
+    protected BotPlayer bot;
 
     public Mode (Game newGame){
         game=newGame;
+        player=new Player();
+        bot=new BotPlayer();
     }
 
     public abstract void start();

@@ -27,6 +27,7 @@ public abstract class Game {
     public abstract String compareCombinaisons(int[] combinaisonSecrete, int[] reponse);
 
 
+
     public int getLongueurCombinaison() {
         return longueurCombinaison;
     }

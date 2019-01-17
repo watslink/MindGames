@@ -66,8 +66,8 @@ public class MastermindGame extends Game {
             }
 
             return responseString;
-    }
+        }
 
-}
+    }
 
 }
