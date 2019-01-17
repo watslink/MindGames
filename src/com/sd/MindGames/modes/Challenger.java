@@ -27,22 +27,8 @@ public class Challenger extends Mode {
         int i=0;
 
             while(i<game.getNombreEssais() && !win){
-                System.out.println("Proposition: ");
-
-                player.setReponseProposee(convertStringToTabOfInt(sc.nextLine()));
-                if(player.getReponseProposee()!=null){
-                    if(checkFormatOfResponse(player.getReponseProposee())) {
-                        String str=game.compareCombinaisons(bot.getCombinaisonSecrete(), player.getReponseProposee());
-                        System.out.println(str);
-                        if(str.equals(Game.getVICTORY())){win=true;}
-                        i++;
-                    }
-                    else
-                        System.out.println("Erreur dans la saisie");
-                }
-
-                else
-                    System.out.println("Erreur dans la saisie");
+               if(setAndCheckPlayerReponseProposee())
+                   i++;
                 }
 
 

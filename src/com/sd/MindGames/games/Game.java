@@ -12,7 +12,7 @@ public abstract class Game {
    protected String responseString;
    protected int valeurOk;
    protected boolean winGame;
-   protected static String VICTORY="Vous avez gagné!! Félicitation!!";
+   protected static String VICTORY="gagné!!";
 
 
 

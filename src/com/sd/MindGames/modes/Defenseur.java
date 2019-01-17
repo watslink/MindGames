@@ -26,17 +26,8 @@ public class Defenseur extends Mode {
 
         while(i<game.getNombreEssais() && !win) {
 
-            bot.setReponseProposee(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(),game.getNombreChiffresDifferents()));
-
-            System.out.println("Proposition: " + Arrays.toString(bot.getReponseProposee()));
-
-            String str = game.compareCombinaisons(bot.getReponseProposee(), player.getCombinaisonSecrete());
-            System.out.println(str);
-            if (str.equals(Game.getVICTORY())) {
-                win = true;
-            }
+            setAndCheckBotPlayerReponseProposee();
             i++;
-
 
         }
     }

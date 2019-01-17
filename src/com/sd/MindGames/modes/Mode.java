@@ -4,6 +4,7 @@ import com.sd.MindGames.games.Game;
 import com.sd.MindGames.player.BotPlayer;
 import com.sd.MindGames.player.Player;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public abstract class Mode {
@@ -24,11 +25,13 @@ public abstract class Mode {
 
     public void setPlayerCombinaisonSecrete(){
         System.out.println("Veuillez entrer une combinaison secrète: ");
-        while(!checkFormatOfResponse(player.getCombinaisonSecrete())) {
+        boolean combiOk=false;
+        while(!combiOk) {
             player.setCombinaisonSecrete(convertStringToTabOfInt(sc.nextLine()));
 
             if (!checkFormatOfResponse(player.getCombinaisonSecrete()))
                 System.out.println("Erreur dans la saisie");
+            else combiOk=true;
         }
 
 
@@ -36,6 +39,48 @@ public abstract class Mode {
 
     public void setBotPlayerCombinaisonSecrete(){
         bot.setCombinaisonSecrete(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
+    }
+
+    public void setAndCheckBotPlayerReponseProposee(){
+        bot.setReponseProposee(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(),game.getNombreChiffresDifferents()));
+
+        System.out.println("Proposition du Bot: " + Arrays.toString(bot.getReponseProposee()));
+
+        String str = game.compareCombinaisons(bot.getReponseProposee(), player.getCombinaisonSecrete());
+
+        if(str.equals(Game.getVICTORY())){
+            win=true;
+            System.out.println("L'ordinateur a "+str);
+        }
+        else
+            System.out.println(str);
+
+    }
+    public boolean setAndCheckPlayerReponseProposee(){
+        System.out.println("Votre proposition: ");
+
+        player.setReponseProposee(convertStringToTabOfInt(sc.nextLine()));
+        if(player.getReponseProposee()!=null){
+            if(checkFormatOfResponse(player.getReponseProposee())) {
+                String str=game.compareCombinaisons(bot.getCombinaisonSecrete(), player.getReponseProposee());
+
+                if(str.equals(Game.getVICTORY())){
+                    win=true;
+                    System.out.println("Vous avez "+str);
+                }
+                else
+                    System.out.println(str);
+
+                return true;
+            }
+            else
+                System.out.println("Erreur dans la saisie");
+                return false;
+        }
+
+        else
+            System.out.println("Erreur dans la saisie");
+            return false;
     }
 
     public int[] convertStringToTabOfInt(String str){

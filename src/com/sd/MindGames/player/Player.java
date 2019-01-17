@@ -2,8 +2,8 @@ package com.sd.MindGames.player;
 
 public class Player {
 
-    private int[] combinaisonSecrete;
-    private int[] reponseProposee;
+    private int[] combinaisonSecrete=null;
+    private int[] reponseProposee=null;
 
     public Player(){
     }
