@@ -8,9 +8,6 @@ import java.util.Arrays;
 public class Challenger extends Mode {
 
 
-    int[]response;
-
-
     public Challenger(Game game){
         super(game);
         start();
@@ -19,21 +16,23 @@ public class Challenger extends Mode {
     @Override
     public void start() {
 
-        bot.createCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents());
-        System.out.println("Retrouvez la combinaison Mystére de "+game.getLongueurCombinaison()+" chiffres !");
+
+        setBotPlayerCombinaisonSecrete();
+
         if(ReadProperties.readBooleanFromProperties("devMode")){
             System.out.println("Combinaison secrete :"+Arrays.toString(bot.getCombinaisonSecrete()));
         }
+
         win=false;
         int i=0;
 
             while(i<game.getNombreEssais() && !win){
                 System.out.println("Proposition: ");
 
-                response=convertStringToTabOfInt(sc.nextLine());
-                if(response!=null){
-                    if(checkFormatOfResponse(response)) {
-                        String str=game.compareCombinaisons(bot.getCombinaisonSecrete(), response);
+                player.setReponseProposee(convertStringToTabOfInt(sc.nextLine()));
+                if(player.getReponseProposee()!=null){
+                    if(checkFormatOfResponse(player.getReponseProposee())) {
+                        String str=game.compareCombinaisons(bot.getCombinaisonSecrete(), player.getReponseProposee());
                         System.out.println(str);
                         if(str.equals(Game.getVICTORY())){win=true;}
                         i++;

@@ -3,6 +3,7 @@ package com.sd.MindGames.player;
 public class Player {
 
     private int[] combinaisonSecrete;
+    private int[] reponseProposee;
 
     public Player(){
     }
@@ -14,5 +15,13 @@ public class Player {
 
     public void setCombinaisonSecrete(int[] combinaisonSecrete) {
         this.combinaisonSecrete = combinaisonSecrete;
+    }
+
+    public int[] getReponseProposee() {
+        return reponseProposee;
+    }
+
+    public void setReponseProposee(int[] reponseProposee) {
+        this.reponseProposee = reponseProposee;
     }
 }

@@ -6,14 +6,14 @@ public class BotPlayer extends Player{
 
     Random r=new Random();
 
-    public void createCombinaisonAleatoire(int longeurCombinaison, int nombreChiffresDifferents){
+    public int[] createCombinaisonAleatoire(int longeurCombinaison, int nombreChiffresDifferents){
 
-        int[] combinaisonSecrete=new int[longeurCombinaison];
+        int[] combinaisonAleatoire=new int[longeurCombinaison];
 
         for(int i=0;  i<longeurCombinaison; i++){
-            combinaisonSecrete[i]=r.nextInt(nombreChiffresDifferents);
+            combinaisonAleatoire[i]=r.nextInt(nombreChiffresDifferents);
         }
-        setCombinaisonSecrete(combinaisonSecrete);
+        return combinaisonAleatoire;
     }
 
 

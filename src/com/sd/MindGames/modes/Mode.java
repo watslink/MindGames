@@ -22,6 +22,21 @@ public abstract class Mode {
 
     public abstract void start();
 
+    public void setPlayerCombinaisonSecrete(){
+        System.out.println("Veuillez entrer une combinaison secrète: ");
+        while(!checkFormatOfResponse(player.getCombinaisonSecrete())) {
+            player.setCombinaisonSecrete(convertStringToTabOfInt(sc.nextLine()));
+
+            if (!checkFormatOfResponse(player.getCombinaisonSecrete()))
+                System.out.println("Erreur dans la saisie");
+        }
+
+
+    }
+
+    public void setBotPlayerCombinaisonSecrete(){
+        bot.setCombinaisonSecrete(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
+    }
 
     public int[] convertStringToTabOfInt(String str){
         int[] tab;

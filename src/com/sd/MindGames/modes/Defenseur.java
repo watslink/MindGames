@@ -17,37 +17,20 @@ public class Defenseur extends Mode {
     @Override
     public void start() {
 
-        int [] response = null;
-        boolean codeOk=false;
+
 
         win=false;
         int i=0;
 
-
-        System.out.println("Veuillez entrer une combinaison secrète: ");
-        while (!codeOk){
-            response=convertStringToTabOfInt(sc.nextLine());
-            if(response!=null){
-                if(checkFormatOfResponse(response)) {
-                    player.setCombinaisonSecrete(response);
-                    codeOk=true;
-                }
-                else
-                    System.out.println("Erreur dans la saisie");
-            }
-            else
-                System.out.println("Erreur dans la saisie");
-        }
-
-
+        setPlayerCombinaisonSecrete();
 
         while(i<game.getNombreEssais() && !win) {
 
-            bot.createCombinaisonAleatoire(game.getLongueurCombinaison(),game.getNombreChiffresDifferents());
-            int[] responseBot = bot.getCombinaisonSecrete();
-            System.out.println("Proposition: " + Arrays.toString(responseBot));
+            bot.setReponseProposee(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(),game.getNombreChiffresDifferents()));
 
-            String str = game.compareCombinaisons(responseBot, response);
+            System.out.println("Proposition: " + Arrays.toString(bot.getReponseProposee()));
+
+            String str = game.compareCombinaisons(bot.getReponseProposee(), player.getCombinaisonSecrete());
             System.out.println(str);
             if (str.equals(Game.getVICTORY())) {
                 win = true;
