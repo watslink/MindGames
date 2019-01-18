@@ -8,6 +8,18 @@ public class RechercheGame extends Game {
         nombreChiffresDifferents=10;
     }
 
+    @Override
+    public void getIntroduction() {
+        System.out.println("");
+        System.out.println("***************************");
+        System.out.println("** Jeu Recherche + ou - **");
+        System.out.println("***************************");
+        System.out.println(" La combinaison secrete ");
+        System.out.println("         comporte        ");
+        System.out.println("        "+getLongueurCombinaison()+" chiffres!");
+        System.out.println("***************************");
+        System.out.println("");
+    }
 
     @Override
     public String compareCombinaisons(int[] combinaisonSecrete, int[] response) {

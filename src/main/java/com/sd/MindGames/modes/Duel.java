@@ -6,10 +6,9 @@ import java.util.Arrays;
 
 public class Duel extends Mode {
 
-    public Duel(Game game){
 
-        super(game);
-        start();
+    public Duel(Game newGame) {
+        super(newGame);
     }
 
     @Override

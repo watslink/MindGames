@@ -19,6 +19,8 @@ public abstract class Mode {
         game=newGame;
         player=new Player();
         bot=new BotPlayer();
+        game.getIntroduction();
+        start();
     }
 
     public abstract void start();

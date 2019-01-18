@@ -13,6 +13,20 @@ public class MastermindGame extends Game {
         nombreChiffresDifferents=ReadProperties.readIntFromProperties("nombreChiffresDifferents");
     }
 
+    @Override
+    public void getIntroduction() {
+        System.out.println("");
+        System.out.println("***************************");
+        System.out.println("****** Jeu MasterMind *****");
+        System.out.println("***************************");
+        System.out.println("  La combinaison secrete ");
+        System.out.println("         comporte        ");
+        System.out.println("         "+getLongueurCombinaison()+" chiffres!");
+        System.out.println("    de  valeur allant de               ");
+        System.out.println("           0 à "+(getNombreChiffresDifferents()-1));
+        System.out.println("***************************");
+        System.out.println("");
+    }
 
     @Override
     public String compareCombinaisons(int[] combinaisonSecrete, int[] response) {

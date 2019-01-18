@@ -10,7 +10,6 @@ public class Challenger extends Mode {
 
     public Challenger(Game game){
         super(game);
-        start();
     }
 
     @Override
