@@ -15,7 +15,7 @@ public  class ReadProperties {
         Properties prop=new Properties();
         FileInputStream ip;
         try {
-            ip = new FileInputStream("src/config.properties");
+            ip = new FileInputStream("src/main/resources/config.properties");
             prop.load(ip);
         } catch (IOException e) {
             e.printStackTrace();
