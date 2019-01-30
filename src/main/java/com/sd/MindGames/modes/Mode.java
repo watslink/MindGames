@@ -48,7 +48,7 @@ public abstract class Mode {
 
         System.out.println("Proposition du Bot: " + Arrays.toString(bot.getReponseProposee()));
 
-        String str = game.compareCombinaisons(bot.getReponseProposee(), player.getCombinaisonSecrete());
+        String str = game.compareCombinaisons( player.getCombinaisonSecrete(), bot.getReponseProposee() );
 
         if(str.equals(Game.getVictory())){
             win=true;

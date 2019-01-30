@@ -12,19 +12,19 @@ public class BotPlayer extends Player{
 
         int[] combinaisonAleatoire=new int[longeurCombinaison];
 
-        while(!testIfCombinaisonNonUtilisee(combinaisonAleatoire)){
+        do{
             for (int i = 0; i < longeurCombinaison; i++) {
                 combinaisonAleatoire[i] = r.nextInt(nombreChiffresDifferents);
             }
-        }
+        }while(!testIfCombinaisonNonUtilisee(combinaisonAleatoire));
 
         listOfCombinaisonsUtilisees.add(combinaisonAleatoire);
         return combinaisonAleatoire;
     }
 
     private boolean testIfCombinaisonNonUtilisee(int[] combinaisonAleatoire){
-        for (int[] combinaisonUtilisé : listOfCombinaisonsUtilisees){
-            if(combinaisonAleatoire==combinaisonUtilisé){
+        for (int[] combinaisonUtilise : listOfCombinaisonsUtilisees){
+            if(combinaisonAleatoire==combinaisonUtilise){
                 return false;
             }
         }

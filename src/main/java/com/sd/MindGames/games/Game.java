@@ -28,7 +28,7 @@ public abstract class Game {
     public abstract void getIntroduction();
 
 
-    public abstract String compareCombinaisons(int[] combinaisonSecrete, int[] reponse);
+    public abstract String compareCombinaisons(int[] combinaisonSecrete, int[] reponseProposee);
 
 
 
