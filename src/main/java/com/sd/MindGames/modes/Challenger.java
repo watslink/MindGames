@@ -29,6 +29,9 @@ public class Challenger extends Mode {
                if(setAndCheckPlayerReponseProposee())
                    i++;
                 }
+            if(!win){
+                System.out.println("Vous avez perdu!");
+            }
 
 
     }

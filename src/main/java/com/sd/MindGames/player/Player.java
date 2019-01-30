@@ -5,6 +5,7 @@ public class Player {
     private int[] combinaisonSecrete=null;
     private int[] reponseProposee=null;
 
+
     public Player(){
     }
 

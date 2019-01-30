@@ -22,8 +22,8 @@ public class MastermindGame extends Game {
         System.out.println("  La combinaison secrete ");
         System.out.println("         comporte        ");
         System.out.println("         "+getLongueurCombinaison()+" chiffres!");
-        System.out.println("    de  valeur allant de               ");
-        System.out.println("           0 à "+(getNombreChiffresDifferents()-1));
+        System.out.println("         de  valeur                ");
+        System.out.println("          0 à "+(getNombreChiffresDifferents()-1));
         System.out.println("***************************");
         System.out.println("");
     }
@@ -54,8 +54,9 @@ public class MastermindGame extends Game {
 
         }
         if(valeurOk==longueurCombinaison){
-            return getVICTORY();
+            return getVictory();
         }
+
         else{
             switch(valeurMalPlacee){
                 case 0:

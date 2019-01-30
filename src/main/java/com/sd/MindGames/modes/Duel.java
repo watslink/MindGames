@@ -24,7 +24,12 @@ public class Duel extends Mode {
                 setAndCheckBotPlayerReponseProposee();
                 i++;
             }
-
         }
+
+        if(!win){
+            System.out.println("Egalité!!");
+        }
+
+        bot.resetBotMemory();
     }
 }

@@ -86,6 +86,7 @@ public class Main {
 
 
             while (playThisGame) {
+                System.out.println("");
                 System.out.println("Voulez vous rejouez?");
                 System.out.println("Oui, à ce jeu : 1");
                 System.out.println("Oui, à un autre jeu : 2");

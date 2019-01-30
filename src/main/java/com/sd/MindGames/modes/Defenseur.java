@@ -26,6 +26,12 @@ public class Defenseur extends Mode {
             i++;
 
         }
+
+        if(!win){
+            System.out.println("L'ordinateur a perdu, vous avez gagné!");
+        }
+
+        bot.resetBotMemory();
     }
 
 

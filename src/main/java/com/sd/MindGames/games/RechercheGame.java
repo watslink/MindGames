@@ -37,12 +37,17 @@ public class RechercheGame extends Game {
 
 
         }
-            if(valeurOk==longueurCombinaison){
-                return getVICTORY();
-            }
-            else{
-                return responseString;
-            }
+
+        nombreEssaisActuel++;
+
+        if(valeurOk==longueurCombinaison){
+            nombreEssaisActuel=0;
+            return getVictory();
+        }
+
+        else{
+            return responseString;
+        }
     }
 
 

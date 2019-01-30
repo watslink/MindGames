@@ -7,10 +7,12 @@ public abstract class Game {
 
 
    protected int longueurCombinaison;
-   protected int nombreEssais;
+   protected int nombreEssaisMax;
+   protected int nombreEssaisActuel;
    protected int nombreChiffresDifferents;
    protected String responseString;
    protected int valeurOk;
+
    protected boolean winGame;
    protected static String VICTORY="gagné!!";
 
@@ -18,8 +20,8 @@ public abstract class Game {
 
     public Game(){
         longueurCombinaison=ReadProperties.readIntFromProperties("longueurCombinaison");
-        nombreEssais=ReadProperties.readIntFromProperties("nombreEssais");
-
+        nombreEssaisMax=ReadProperties.readIntFromProperties("nombreEssais");
+        nombreEssaisActuel=0;
 
     }
 
@@ -36,13 +38,15 @@ public abstract class Game {
         return longueurCombinaison;
     }
 
-    public int getNombreEssais() {return nombreEssais;}
+    public int getNombreEssais() {return nombreEssaisMax;}
 
     public int getNombreChiffresDifferents() {
         return nombreChiffresDifferents;
     }
 
-    public static String getVICTORY() {
+    public static String getVictory() {
         return VICTORY;
     }
+
+
 }

@@ -50,7 +50,7 @@ public abstract class Mode {
 
         String str = game.compareCombinaisons(bot.getReponseProposee(), player.getCombinaisonSecrete());
 
-        if(str.equals(Game.getVICTORY())){
+        if(str.equals(Game.getVictory())){
             win=true;
             System.out.println("L'ordinateur a "+str);
         }
@@ -66,7 +66,7 @@ public abstract class Mode {
             if(checkFormatOfResponse(player.getReponseProposee())) {
                 String str=game.compareCombinaisons(bot.getCombinaisonSecrete(), player.getReponseProposee());
 
-                if(str.equals(Game.getVICTORY())){
+                if(str.equals(Game.getVictory())){
                     win=true;
                     System.out.println("Vous avez "+str);
                 }
