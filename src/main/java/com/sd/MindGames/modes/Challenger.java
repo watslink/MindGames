@@ -1,39 +1,30 @@
 package com.sd.MindGames.modes;
 
 import com.sd.MindGames.games.Game;
-import com.sd.MindGames.utils.ReadProperties;
 
-import java.util.Arrays;
 
 public class Challenger extends Mode {
 
 
-    public Challenger(Game game){
+    public Challenger(Game game) {
         super(game);
     }
 
     @Override
     public void start() {
 
-
         setBotPlayerCombinaisonSecrete();
+        afficherCombinaisonSecreteSiDevMode();
 
-        if(ReadProperties.readBooleanFromProperties("devMode")){
-            System.out.println("Combinaison secrete :"+Arrays.toString(bot.getCombinaisonSecrete()));
+        win = false;
+        int i = 0;
+
+        while (i < game.getNombreEssais() && !win) {
+            if (setAndCheckPlayerReponseProposee())
+                i++;
         }
-
-        win=false;
-        int i=0;
-
-            while(i<game.getNombreEssais() && !win){
-               if(setAndCheckPlayerReponseProposee())
-                   i++;
-                }
-            if(!win){
-                System.out.println("Vous avez perdu!");
-            }
-
-
+        if (!win) {
+            System.out.println("Vous avez perdu!");
+        }
     }
-
 }

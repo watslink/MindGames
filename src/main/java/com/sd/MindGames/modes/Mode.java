@@ -3,6 +3,7 @@ package com.sd.MindGames.modes;
 import com.sd.MindGames.games.Game;
 import com.sd.MindGames.player.BotPlayer;
 import com.sd.MindGames.player.Player;
+import com.sd.MindGames.utils.ReadProperties;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -15,105 +16,97 @@ public abstract class Mode {
     protected Player player;
     protected BotPlayer bot;
 
-    public Mode (Game newGame){
-        game=newGame;
-        player=new Player();
-        bot=new BotPlayer();
-        game.getIntroduction();
+    public Mode(Game newGame) {
+        game = newGame;
+        player = new Player();
+        bot = new BotPlayer();
+        game.afficherRegles();
         start();
     }
 
     public abstract void start();
 
-    public void setPlayerCombinaisonSecrete(){
+    public void setPlayerCombinaisonSecrete() {
         System.out.println("Veuillez entrer une combinaison secrète: ");
-        boolean combiOk=false;
-        while(!combiOk) {
+        boolean combiOk = false;
+        while (!combiOk) {
             player.setCombinaisonSecrete(convertStringToTabOfInt(sc.nextLine()));
-
             if (!checkFormatOfResponse(player.getCombinaisonSecrete()))
                 System.out.println("Erreur dans la saisie");
-            else combiOk=true;
+            else combiOk = true;
         }
-
-
     }
 
-    public void setBotPlayerCombinaisonSecrete(){
+    public void setBotPlayerCombinaisonSecrete() {
         bot.setCombinaisonSecrete(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
     }
 
-    public void setAndCheckBotPlayerReponseProposee(){
-        bot.setReponseProposee(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(),game.getNombreChiffresDifferents()));
+    public void setAndCheckBotPlayerReponseProposee() {
+        bot.setReponseProposee(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
 
         System.out.println("Proposition du Bot: " + Arrays.toString(bot.getReponseProposee()));
 
-        String str = game.compareCombinaisons( player.getCombinaisonSecrete(), bot.getReponseProposee() );
+        String str = game.comparerCombinaisons(player.getCombinaisonSecrete(), bot.getReponseProposee());
 
-        if(str.equals(Game.getVictory())){
-            win=true;
-            System.out.println("L'ordinateur a "+str);
-        }
-        else
+        if (str.equals(Game.getVICTOIRE())) {
+            win = true;
+            System.out.println("L'ordinateur a " + str);
+        } else
             System.out.println(str);
-
     }
-    public boolean setAndCheckPlayerReponseProposee(){
+
+    public boolean setAndCheckPlayerReponseProposee() {
         System.out.println("Votre proposition: ");
 
         player.setReponseProposee(convertStringToTabOfInt(sc.nextLine()));
-        if(player.getReponseProposee()!=null){
-            if(checkFormatOfResponse(player.getReponseProposee())) {
-                String str=game.compareCombinaisons(bot.getCombinaisonSecrete(), player.getReponseProposee());
+        if (player.getReponseProposee() != null) {
+            if (checkFormatOfResponse(player.getReponseProposee())) {
+                String str = game.comparerCombinaisons(bot.getCombinaisonSecrete(), player.getReponseProposee());
 
-                if(str.equals(Game.getVictory())){
-                    win=true;
-                    System.out.println("Vous avez "+str);
-                }
-                else
+                if (str.equals(Game.getVICTOIRE())) {
+                    win = true;
+                    System.out.println("Vous avez " + str);
+                } else
                     System.out.println(str);
 
                 return true;
-            }
-            else
+            } else
                 System.out.println("Erreur dans la saisie");
-                return false;
-        }
-
-        else
-            System.out.println("Erreur dans la saisie");
             return false;
+        } else
+            System.out.println("Erreur dans la saisie");
+        return false;
     }
 
-    public int[] convertStringToTabOfInt(String str){
+    public int[] convertStringToTabOfInt(String str) {
         int[] tab;
 
-        try{
+        try {
             tab = new int[str.length()];
-            for ( int i=0; i<str.length(); i++) {
+            for (int i = 0; i < str.length(); i++) {
                 tab[i] = Integer.parseInt("" + str.charAt(i));
             }
             return tab;
+        } catch (NumberFormatException e) {
+            return tab = null;
         }
-        catch (NumberFormatException e){
-            return tab=null;
-        }
-
     }
 
-    public boolean checkFormatOfResponse(int[] response){
-        if(response.length != game.getLongueurCombinaison()){
-           return false;
+    public boolean checkFormatOfResponse(int[] response) {
+        if (response.length != game.getLongueurCombinaison()) {
+            return false;
         }
-
-
-        for (int i=0; i<response.length; i++)
-        {
-            if(response[i]>(game.getNombreChiffresDifferents()-1))
+        for (int i = 0; i < response.length; i++) {
+            if (response[i] > (game.getNombreChiffresDifferents() - 1))
                 return false;
         }
-
         return true;
+    }
+
+    protected void afficherCombinaisonSecreteSiDevMode() {
+        if (ReadProperties.readBooleanFromProperties("devMode")) {
+            System.out.println("Combinaison secrete :" + Arrays.toString(bot.getCombinaisonSecrete()));
+        }
     }
 }
 

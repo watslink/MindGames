@@ -2,13 +2,12 @@ package com.sd.MindGames.player;
 
 public class Player {
 
-    private int[] combinaisonSecrete=null;
-    private int[] reponseProposee=null;
+    private int[] combinaisonSecrete = null;
+    private int[] reponseProposee = null;
 
 
-    public Player(){
+    public Player() {
     }
-
 
     public int[] getCombinaisonSecrete() {
         return combinaisonSecrete;

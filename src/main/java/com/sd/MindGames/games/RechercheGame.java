@@ -3,52 +3,49 @@ package com.sd.MindGames.games;
 
 public class RechercheGame extends Game {
 
-    public RechercheGame(){
+    public RechercheGame() {
         super();
-        nombreChiffresDifferents=10;
+        nombreChiffresDifferents = 10;
     }
 
     @Override
-    public void getIntroduction() {
+    public void afficherRegles() {
         System.out.println();
         System.out.println("***************************");
         System.out.println("** Jeu Recherche + ou - **");
         System.out.println("***************************");
         System.out.println(" La combinaison secrete ");
         System.out.println("         comporte        ");
-        System.out.println("        "+getLongueurCombinaison()+" chiffres!");
+        System.out.println("        " + getLongueurCombinaison() + " chiffres!");
         System.out.println("***************************");
         System.out.println();
     }
 
     @Override
-    public String compareCombinaisons(int[] combinaisonSecrete, int[] response) {
-        responseString="Réponse : ";
-        valeurOk=0;
+    public String comparerCombinaisons(int[] combinaisonSecrete, int[] reponseProposee) {
+        reponseString = "Réponse : ";
+        valeurOk = 0;
 
-        for(int i=0; i<longueurCombinaison;i++)
-        {
-            if (combinaisonSecrete[i]==response[i]) {
-                responseString=responseString+"=";
+        for (int i = 0; i < longueurCombinaison; i++) {
+            if (combinaisonSecrete[i] == reponseProposee[i]) {
+                reponseString = reponseString + "=";
                 valeurOk++;
             }
-            if (combinaisonSecrete[i]<response[i]) {responseString=responseString+"-";}
-            if (combinaisonSecrete[i]>response[i]) {responseString=responseString+"+";}
-
-
+            if (combinaisonSecrete[i] < reponseProposee[i]) {
+                reponseString = reponseString + "-";
+            }
+            if (combinaisonSecrete[i] > reponseProposee[i]) {
+                reponseString = reponseString + "+";
+            }
         }
 
         nombreEssaisActuel++;
 
-        if(valeurOk==longueurCombinaison){
-            nombreEssaisActuel=0;
-            return getVictory();
-        }
-
-        else{
-            return responseString;
+        if (valeurOk == longueurCombinaison) {
+            nombreEssaisActuel = 0;
+            return getVICTOIRE();
+        } else {
+            return reponseString;
         }
     }
-
-
 }
