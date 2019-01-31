@@ -19,7 +19,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        logger.debug("Hello world.");
+        logger.debug("Debug test");
+
         Scanner sc = new Scanner(System.in);
         boolean playAnotherGame=true;
         boolean playThisGame=true;
@@ -37,7 +38,7 @@ public class Main {
 
             playThisGame=true;
 
-            System.out.println("");
+            System.out.println();
             System.out.println("Liste des jeux:");
             System.out.println("Recherche + ou - : 1");
             System.out.println("MasterMind : 2");
@@ -58,7 +59,7 @@ public class Main {
                     break;
             }
 
-            System.out.println("");
+            System.out.println();
             System.out.println("Modes de jeu:");
             System.out.println("Challenger: 1 ");
             System.out.println("Defenseur: 2");
@@ -86,7 +87,7 @@ public class Main {
 
 
             while (playThisGame) {
-                System.out.println("");
+                System.out.println();
                 System.out.println("Voulez vous rejouez?");
                 System.out.println("Oui, à ce jeu : 1");
                 System.out.println("Oui, à un autre jeu : 2");

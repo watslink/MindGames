@@ -15,7 +15,7 @@ public class MastermindGame extends Game {
 
     @Override
     public void getIntroduction() {
-        System.out.println("");
+        System.out.println();
         System.out.println("***************************");
         System.out.println("****** Jeu MasterMind *****");
         System.out.println("***************************");
@@ -25,7 +25,7 @@ public class MastermindGame extends Game {
         System.out.println("         de  valeur                ");
         System.out.println("          0 à "+(getNombreChiffresDifferents()-1));
         System.out.println("***************************");
-        System.out.println("");
+        System.out.println();
     }
 
     @Override

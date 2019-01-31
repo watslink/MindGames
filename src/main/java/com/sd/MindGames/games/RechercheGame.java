@@ -10,7 +10,7 @@ public class RechercheGame extends Game {
 
     @Override
     public void getIntroduction() {
-        System.out.println("");
+        System.out.println();
         System.out.println("***************************");
         System.out.println("** Jeu Recherche + ou - **");
         System.out.println("***************************");
@@ -18,7 +18,7 @@ public class RechercheGame extends Game {
         System.out.println("         comporte        ");
         System.out.println("        "+getLongueurCombinaison()+" chiffres!");
         System.out.println("***************************");
-        System.out.println("");
+        System.out.println();
     }
 
     @Override

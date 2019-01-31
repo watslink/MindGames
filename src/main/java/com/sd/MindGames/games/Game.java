@@ -1,6 +1,5 @@
 package com.sd.MindGames.games;
 
-import com.sd.MindGames.modes.Mode;
 import com.sd.MindGames.utils.ReadProperties;
 
 public abstract class Game {
@@ -12,8 +11,6 @@ public abstract class Game {
    protected int nombreChiffresDifferents;
    protected String responseString;
    protected int valeurOk;
-
-   protected boolean winGame;
    protected static String VICTORY="gagné!!";
 
 

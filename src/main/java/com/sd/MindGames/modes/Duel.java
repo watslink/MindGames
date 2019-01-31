@@ -1,6 +1,7 @@
 package com.sd.MindGames.modes;
 
 import com.sd.MindGames.games.Game;
+import com.sd.MindGames.utils.ReadProperties;
 
 import java.util.Arrays;
 
@@ -14,6 +15,11 @@ public class Duel extends Mode {
     @Override
     public void start() {
         setBotPlayerCombinaisonSecrete();
+
+        if(ReadProperties.readBooleanFromProperties("devMode")){
+            System.out.println("Combinaison secrete :"+ Arrays.toString(bot.getCombinaisonSecrete()));
+        }
+
         setPlayerCombinaisonSecrete();
 
         win=false;
@@ -21,8 +27,10 @@ public class Duel extends Mode {
 
         while(i<game.getNombreEssais() && !win){
             if(setAndCheckPlayerReponseProposee()) {
-                setAndCheckBotPlayerReponseProposee();
-                i++;
+                if(!win) {
+                    setAndCheckBotPlayerReponseProposee();
+                    i++;
+                }
             }
         }
 
