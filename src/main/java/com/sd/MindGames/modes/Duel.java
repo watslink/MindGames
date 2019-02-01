@@ -20,16 +20,15 @@ public class Duel extends Mode {
         int i = 0;
 
         while (i < game.getNombreEssais() && !win) {
+
             if (!win) {
                 setPlayerReponseProposee();
                 checkPlayerReponseProposee();
-
             }
 
             if (!win) {
                 setBotReponseProposee();
                 checkBotReponseProposee();
-
             }
             i++;
         }
