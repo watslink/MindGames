@@ -20,8 +20,8 @@ public class Challenger extends Mode {
         int i = 0;
 
         while (i < game.getNombreEssais() && !win) {
-            if (setAndCheckPlayerReponseProposee())
-                i++;
+            setPlayerReponseProposee();
+            checkPlayerReponseProposee();
         }
         if (!win) {
             System.out.println("Vous avez perdu!");

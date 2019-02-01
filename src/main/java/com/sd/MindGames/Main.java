@@ -15,20 +15,20 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static  Logger logger = LogManager.getLogger("Main");
+    private static Logger logger = LogManager.getLogger("Main");
 
     public static void main(String[] args) {
 
         logger.debug("Debug test");
 
         Scanner sc = new Scanner(System.in);
-        boolean playAnotherGame=true;
-        boolean playThisGame=true;
+        boolean playAnotherGame = true;
+        boolean playThisGame = true;
         Game newGame = null;
-        int nbJeu=0;
-        int nbMode=0;
-        int nbRetry=0;
-        Mode mode=null;
+        int nbJeu = 0;
+        int nbMode = 0;
+        int nbRetry = 0;
+        Mode mode = null;
 
         System.out.println("**************************");
         System.out.println("**Bienvenue à MindGames!**");
@@ -36,7 +36,7 @@ public class Main {
 
         while (playAnotherGame) {
 
-            playThisGame=true;
+            playThisGame = true;
 
             System.out.println();
             System.out.println("Liste des jeux:");
@@ -74,16 +74,15 @@ public class Main {
 
             switch (nbMode) {
                 case 1:
-                    mode=new Challenger(newGame);
+                    mode = new Challenger(newGame);
                     break;
                 case 2:
-                    mode=new Defenseur(newGame);
+                    mode = new Defenseur(newGame);
                     break;
                 case 3:
-                    mode= new Duel(newGame);
+                    mode = new Duel(newGame);
                     break;
             }
-
 
 
             while (playThisGame) {
@@ -105,11 +104,11 @@ public class Main {
                         mode.start();
                         break;
                     case 2:
-                        playThisGame=false;
+                        playThisGame = false;
                         playAnotherGame = true;
                         break;
                     case 3:
-                        playThisGame=false;
+                        playThisGame = false;
                         playAnotherGame = false;
                         break;
                 }

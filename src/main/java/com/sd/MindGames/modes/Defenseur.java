@@ -19,7 +19,8 @@ public class Defenseur extends Mode {
         setPlayerCombinaisonSecrete();
 
         while (i < game.getNombreEssais() && !win) {
-            setAndCheckBotPlayerReponseProposee();
+            setBotReponseProposee();
+            checkBotReponseProposee();
             i++;
         }
 

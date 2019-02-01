@@ -24,27 +24,31 @@ public abstract class Mode {
         start();
     }
 
-    public abstract void start();
+    protected abstract void start();
 
-    public void setPlayerCombinaisonSecrete() {
+    protected void setPlayerCombinaisonSecrete() {
         System.out.println("Veuillez entrer une combinaison secrète: ");
-        boolean combiOk = false;
-        while (!combiOk) {
-            player.setCombinaisonSecrete(convertStringToTabOfInt(sc.nextLine()));
-            if (!checkFormatOfResponse(player.getCombinaisonSecrete()))
+        player.setCombinaisonSecrete(AquisitionEtVerificationCombinaison());
+    }
+
+    private int[] AquisitionEtVerificationCombinaison() {
+
+        while (true) {
+            int[] combiProposee = convertStringToTabOfInt(sc.nextLine());
+            if (!checkFormatOfResponse(combiProposee))
                 System.out.println("Erreur dans la saisie");
-            else combiOk = true;
+            else {
+
+                return combiProposee;
+            }
         }
     }
 
-    public void setBotPlayerCombinaisonSecrete() {
+    protected void setBotPlayerCombinaisonSecrete() {
         bot.setCombinaisonSecrete(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
     }
 
-    public void setAndCheckBotPlayerReponseProposee() {
-        bot.setReponseProposee(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
-
-        System.out.println("Proposition du Bot: " + Arrays.toString(bot.getReponseProposee()));
+    protected void checkBotReponseProposee() {
 
         String str = game.comparerCombinaisons(player.getCombinaisonSecrete(), bot.getReponseProposee());
 
@@ -55,30 +59,30 @@ public abstract class Mode {
             System.out.println(str);
     }
 
-    public boolean setAndCheckPlayerReponseProposee() {
-        System.out.println("Votre proposition: ");
+    protected void setBotReponseProposee() {
+        bot.setReponseProposee(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
 
-        player.setReponseProposee(convertStringToTabOfInt(sc.nextLine()));
-        if (player.getReponseProposee() != null) {
-            if (checkFormatOfResponse(player.getReponseProposee())) {
-                String str = game.comparerCombinaisons(bot.getCombinaisonSecrete(), player.getReponseProposee());
-
-                if (str.equals(Game.getVICTOIRE())) {
-                    win = true;
-                    System.out.println("Vous avez " + str);
-                } else
-                    System.out.println(str);
-
-                return true;
-            } else
-                System.out.println("Erreur dans la saisie");
-            return false;
-        } else
-            System.out.println("Erreur dans la saisie");
-        return false;
+        System.out.println("Proposition du Bot: " + Arrays.toString(bot.getReponseProposee()));
     }
 
-    public int[] convertStringToTabOfInt(String str) {
+    protected void setPlayerReponseProposee() {
+        System.out.println("Votre proposition: ");
+
+        player.setReponseProposee(AquisitionEtVerificationCombinaison());
+
+    }
+
+    protected void checkPlayerReponseProposee() {
+        String str = game.comparerCombinaisons(bot.getCombinaisonSecrete(), player.getReponseProposee());
+
+        if (str.equals(Game.getVICTOIRE())) {
+            win = true;
+            System.out.println("Vous avez " + str);
+        } else
+            System.out.println(str);
+    }
+
+    protected int[] convertStringToTabOfInt(String str) {
         int[] tab;
 
         try {
@@ -92,7 +96,7 @@ public abstract class Mode {
         }
     }
 
-    public boolean checkFormatOfResponse(int[] response) {
+    protected boolean checkFormatOfResponse(int[] response) {
         if (response.length != game.getLongueurCombinaison()) {
             return false;
         }
