@@ -84,6 +84,7 @@ public class Main {
                     break;
             }
 
+            mode.start();
 
             while (playThisGame) {
                 System.out.println();

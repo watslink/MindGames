@@ -16,12 +16,13 @@ public abstract class Mode {
     protected Player player;
     protected BotPlayer bot;
 
+
     public Mode(Game newGame) {
         game = newGame;
         player = new Player();
         bot = new BotPlayer();
         game.afficherRegles();
-        start();
+
     }
 
     public abstract void start();
