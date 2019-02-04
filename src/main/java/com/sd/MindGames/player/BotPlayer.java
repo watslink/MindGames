@@ -8,7 +8,7 @@ public class BotPlayer extends Player {
     private Random r = new Random();
     private ArrayList<int[]> listOfCombinaisonsUtilisees = new ArrayList<>();
 
-    public int[] createCombinaisonAleatoire(int longeurCombinaison, int nombreChiffresDifferents) {
+    public int[] creerCombinaisonAleatoire(int longeurCombinaison, int nombreChiffresDifferents) {
 
         int[] combinaisonAleatoire = new int[longeurCombinaison];
 
@@ -16,13 +16,13 @@ public class BotPlayer extends Player {
             for (int i = 0; i < longeurCombinaison; i++) {
                 combinaisonAleatoire[i] = r.nextInt(nombreChiffresDifferents);
             }
-        } while (!testIfCombinaisonNonUtilisee(combinaisonAleatoire));
+        } while (!testSiCombinaisonNonUtilisee(combinaisonAleatoire));
 
         listOfCombinaisonsUtilisees.add(combinaisonAleatoire);
         return combinaisonAleatoire;
     }
 
-    private boolean testIfCombinaisonNonUtilisee(int[] combinaisonAleatoire) {
+    private boolean testSiCombinaisonNonUtilisee(int[] combinaisonAleatoire) {
         for (int[] combinaisonUtilise : listOfCombinaisonsUtilisees) {
             if (combinaisonAleatoire == combinaisonUtilise) {
                 return false;
@@ -31,7 +31,7 @@ public class BotPlayer extends Player {
         return true;
     }
 
-    public void resetBotMemory() {
+    public void effacerMemoireBotPlayer() {
         listOfCombinaisonsUtilisees.clear();
     }
 }

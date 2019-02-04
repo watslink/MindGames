@@ -51,5 +51,13 @@
 	   duel : devMode
 
 	 
-	
+	+++++++ LANCEMENT DE L'APPLICATION ++++++++++
+
+	Dans le repertoire de MindGames.jar entrer dans la console:
+	java -jar MindGames.jar
+	Pour lancer en mode develeppement:
+	java -jar MindGames.jar -devMode
+
+	NB: le mode developpement peut être activé soit par le fichier config.properties ou au lancement de l'application
+	pour qu'il soir incatif il faut que devMode=false dans config.properties ET lancer le jeu en mode normal.
 	

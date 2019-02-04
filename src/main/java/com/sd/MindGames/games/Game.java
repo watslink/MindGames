@@ -1,6 +1,6 @@
 package com.sd.MindGames.games;
 
-import com.sd.MindGames.utils.ReadProperties;
+import com.sd.MindGames.utils.PropertiesUtils;
 
 public abstract class Game {
 
@@ -15,8 +15,8 @@ public abstract class Game {
 
 
     public Game() {
-        longueurCombinaison = ReadProperties.readIntFromProperties("longueurCombinaison");
-        nombreEssaisMax = ReadProperties.readIntFromProperties("nombreEssais");
+        longueurCombinaison = PropertiesUtils.readIntFromProperties("longueurCombinaison");
+        nombreEssaisMax = PropertiesUtils.readIntFromProperties("nombreEssais");
         nombreEssaisActuel = 0;
     }
 

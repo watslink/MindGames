@@ -19,8 +19,8 @@ public class Defenseur extends Mode {
         setPlayerCombinaisonSecrete();
 
         while (i < game.getNombreEssais() && !win) {
-            setBotReponseProposee();
-            checkBotReponseProposee();
+            setBotPlayerReponseProposee();
+            checkBotPlayerReponseProposee();
             i++;
         }
 
@@ -28,6 +28,6 @@ public class Defenseur extends Mode {
             System.out.println("L'ordinateur a perdu, vous avez gagné!");
         }
 
-        bot.resetBotMemory();
+        bot.effacerMemoireBotPlayer();
     }
 }

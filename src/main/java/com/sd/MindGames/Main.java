@@ -7,6 +7,8 @@ import com.sd.MindGames.modes.Challenger;
 import com.sd.MindGames.modes.Defenseur;
 import com.sd.MindGames.modes.Duel;
 import com.sd.MindGames.modes.Mode;
+import com.sd.MindGames.utils.Config;
+import com.sd.MindGames.utils.PropertiesUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -19,7 +21,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        logger.debug("Debug test");
+        if(PropertiesUtils.readBooleanFromProperties("devMode") || (args.length > 0 && args[0].equals("-devMode"))){
+            Config.setDevMode(true);
+            logger.info("**Mode Developpement**");
+        }
+
+
 
         Scanner sc = new Scanner(System.in);
         boolean playAnotherGame = true;

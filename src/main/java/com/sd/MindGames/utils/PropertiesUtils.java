@@ -1,24 +1,29 @@
 package com.sd.MindGames.utils;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
+
 import java.util.Properties;
 
-public class ReadProperties {
+public class PropertiesUtils {
 
-    public static String readStringFromProperties(String propKey) {
+    static private Properties prop = getProperties();
 
+    protected static Properties getProperties() {
         Properties prop = new Properties();
-        FileInputStream ip;
+        InputStream ip;
         try {
-            ip = new FileInputStream("src/main/resources/config.properties");
+            ip = ClassLoader.getSystemResourceAsStream("config.properties");
             prop.load(ip);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return prop.getProperty(propKey);
+        return prop;
     }
 
+    public static String readStringFromProperties(String propKey) {
+
+        return prop.getProperty(propKey);
+    }
 
     public static int readIntFromProperties(String propString) {
         return Integer.parseInt(readStringFromProperties(propString));
@@ -27,6 +32,8 @@ public class ReadProperties {
     public static boolean readBooleanFromProperties(String propString) {
         return Boolean.parseBoolean(readStringFromProperties(propString));
     }
+
+
 }
 
 

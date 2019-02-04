@@ -2,6 +2,8 @@ package com.sd.MindGames.modes;
 
 import com.sd.MindGames.games.Game;
 
+import java.util.Arrays;
+
 
 public class Duel extends Mode {
 
@@ -27,16 +29,17 @@ public class Duel extends Mode {
             }
 
             if (!win) {
-                setBotReponseProposee();
-                checkBotReponseProposee();
+                setBotPlayerReponseProposee();
+                checkBotPlayerReponseProposee();
             }
             i++;
         }
 
         if (!win) {
             System.out.println("Egalité!!");
+            System.out.println("la combinaison etait :"+ Arrays.toString(bot.getCombinaisonSecrete()));
         }
 
-        bot.resetBotMemory();
+        bot.effacerMemoireBotPlayer();
     }
 }

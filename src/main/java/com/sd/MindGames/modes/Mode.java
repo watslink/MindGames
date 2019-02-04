@@ -3,7 +3,7 @@ package com.sd.MindGames.modes;
 import com.sd.MindGames.games.Game;
 import com.sd.MindGames.player.BotPlayer;
 import com.sd.MindGames.player.Player;
-import com.sd.MindGames.utils.ReadProperties;
+import com.sd.MindGames.utils.Config;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -33,7 +33,7 @@ public abstract class Mode {
     }
 
     protected void setBotPlayerCombinaisonSecrete() {
-        bot.setCombinaisonSecrete(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
+        bot.setCombinaisonSecrete(bot.creerCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
     }
 
     protected void setPlayerReponseProposee() {
@@ -43,8 +43,8 @@ public abstract class Mode {
 
     }
 
-    protected void setBotReponseProposee() {
-        bot.setReponseProposee(bot.createCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
+    protected void setBotPlayerReponseProposee() {
+        bot.setReponseProposee(bot.creerCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
 
         System.out.println("Proposition du Bot: " + Arrays.toString(bot.getReponseProposee()));
     }
@@ -59,13 +59,14 @@ public abstract class Mode {
             System.out.println(str);
     }
 
-    protected void checkBotReponseProposee() {
+    protected void checkBotPlayerReponseProposee() {
 
         String str = game.comparerCombinaisons(player.getCombinaisonSecrete(), bot.getReponseProposee());
 
         if (str.equals(Game.getVICTOIRE())) {
             win = true;
             System.out.println("L'ordinateur a " + str);
+            System.out.println("la combinaison etait :"+ Arrays.toString(bot.getCombinaisonSecrete()));
         } else
             System.out.println(str);
     }
@@ -73,8 +74,8 @@ public abstract class Mode {
     private int[] AquisitionEtVerificationCombinaison() {
 
         while (true) {
-            int[] combiProposee = convertStringToTabOfInt(sc.nextLine());
-            if (!checkFormatOfResponse(combiProposee))
+            int[] combiProposee = convertirStringEnTabInt(sc.nextLine());
+            if (!checkLongeurReponseProposee(combiProposee))
                 System.out.println("Erreur dans la saisie, Recommencez:");
             else {
 
@@ -83,7 +84,7 @@ public abstract class Mode {
         }
     }
 
-    protected int[] convertStringToTabOfInt(String str) {
+    protected int[] convertirStringEnTabInt(String str) {
         int[] tab;
 
         try {
@@ -97,7 +98,7 @@ public abstract class Mode {
         }
     }
 
-    protected boolean checkFormatOfResponse(int[] reponseProposee) {
+    protected boolean checkLongeurReponseProposee(int[] reponseProposee) {
         if (reponseProposee==null) {
             return false;
         }
@@ -112,7 +113,7 @@ public abstract class Mode {
     }
 
     protected void afficherCombinaisonSecreteSiDevMode() {
-        if (ReadProperties.readBooleanFromProperties("devMode")) {
+        if (Config.isDevMode() ) {
             System.out.println("Combinaison secrete :" + Arrays.toString(bot.getCombinaisonSecrete()));
         }
     }

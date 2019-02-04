@@ -1,7 +1,7 @@
 package com.sd.MindGames.games;
 
 
-import com.sd.MindGames.utils.ReadProperties;
+import com.sd.MindGames.utils.PropertiesUtils;
 
 public class MastermindGame extends Game {
 
@@ -10,7 +10,7 @@ public class MastermindGame extends Game {
 
     public MastermindGame() {
         super();
-        nombreChiffresDifferents = ReadProperties.readIntFromProperties("nombreChiffresDifferents");
+        nombreChiffresDifferents = PropertiesUtils.readIntFromProperties("nombreChiffresDifferents");
     }
 
     @Override
