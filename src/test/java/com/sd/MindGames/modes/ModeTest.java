@@ -22,7 +22,7 @@ class ModeTest {
 
 
     @Test
-    void testConvertStringToTabOfInt() {
+    void testConvertirStringEnTabInt() {
         String testString="12345";
         int[] tabExpected ={1,2,3,4,5};
         assertArrayEquals(mode.convertirStringEnTabInt(testString), tabExpected, "conversion en tab ok");
@@ -32,7 +32,7 @@ class ModeTest {
     }
 
     @Test
-    void testCheckFormatOfResponse() {
+    void testCheckLongueurReponseProposee() {
 
         int[] combiTest= new int[game.getLongueurCombinaison()];
         assertTrue(mode.checkLongeurReponseProposee(combiTest), "longueur ok");
