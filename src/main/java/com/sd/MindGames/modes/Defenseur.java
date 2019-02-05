@@ -20,7 +20,7 @@ public class Defenseur extends Mode {
 
         while (i < game.getNombreEssais() && !win) {
             setBotPlayerReponseProposee();
-            checkBotPlayerReponseProposee();
+            checkPlayerReponseProposee(player, bot);
             i++;
         }
 

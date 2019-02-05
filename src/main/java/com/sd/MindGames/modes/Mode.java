@@ -49,26 +49,16 @@ public abstract class Mode {
         System.out.println("Proposition du Bot: " + Arrays.toString(bot.getReponseProposee()));
     }
 
-    protected void checkPlayerReponseProposee() {
-        String str = game.comparerCombinaisons(bot.getCombinaisonSecrete(), player.getReponseProposee());
+    protected void checkPlayerReponseProposee(Player defenseur, Player attaquant) {
+        String str = game.comparerCombinaisons(defenseur.getCombinaisonSecrete(), attaquant.getReponseProposee());
 
         if (str.equals(Game.getVICTOIRE())) {
             win = true;
-            System.out.println("Vous avez " + str);
+            System.out.println(attaquant.getNom()+ " a " + str);
         } else
             System.out.println(str);
     }
 
-    protected void checkBotPlayerReponseProposee() {
-
-        String str = game.comparerCombinaisons(player.getCombinaisonSecrete(), bot.getReponseProposee());
-
-        if (str.equals(Game.getVICTOIRE())) {
-            win = true;
-            System.out.println("L'ordinateur a " + str);
-        } else
-            System.out.println(str);
-    }
 
     private int[] AquisitionEtVerificationCombinaison() {
 

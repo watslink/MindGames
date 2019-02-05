@@ -23,7 +23,7 @@ public class Challenger extends Mode {
 
         while (i < game.getNombreEssais() && !win) {
             setPlayerReponseProposee();
-            checkPlayerReponseProposee();
+            checkPlayerReponseProposee(bot,player);
             i++;
         }
         if (!win) {

@@ -25,12 +25,12 @@ public class Duel extends Mode {
 
             if (!win) {
                 setPlayerReponseProposee();
-                checkPlayerReponseProposee();
+                checkPlayerReponseProposee(bot, player);
             }
 
             if (!win) {
                 setBotPlayerReponseProposee();
-                checkBotPlayerReponseProposee();
+                checkPlayerReponseProposee(player, bot);
                 if(win){
                     System.out.println("la combinaison etait :"+ Arrays.toString(bot.getCombinaisonSecrete()));
                 }
