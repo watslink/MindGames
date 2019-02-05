@@ -66,7 +66,6 @@ public abstract class Mode {
         if (str.equals(Game.getVICTOIRE())) {
             win = true;
             System.out.println("L'ordinateur a " + str);
-            System.out.println("la combinaison etait :"+ Arrays.toString(bot.getCombinaisonSecrete()));
         } else
             System.out.println(str);
     }
