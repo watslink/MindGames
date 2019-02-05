@@ -19,8 +19,8 @@ public abstract class Mode {
 
     public Mode(Game newGame) {
         game = newGame;
-        player = new Player();
-        bot = new BotPlayer();
+        player = new Player("Joueur");
+        bot = new BotPlayer("Ordinateur");
         game.afficherRegles();
 
     }

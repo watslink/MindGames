@@ -8,6 +8,10 @@ public class BotPlayer extends Player {
     private Random r = new Random();
     private ArrayList<int[]> listOfCombinaisonsUtilisees = new ArrayList<>();
 
+    public BotPlayer(String namePlayer) {
+        super(namePlayer);
+    }
+
     public int[] creerCombinaisonAleatoire(int longeurCombinaison, int nombreChiffresDifferents) {
 
         int[] combinaisonAleatoire = new int[longeurCombinaison];
