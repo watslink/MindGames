@@ -27,7 +27,7 @@ public class Challenger extends Mode {
             i++;
         }
         if (!win) {
-            System.out.println("Vous avez perdu!");
+            System.out.println(player.getNom()+" a perdu!");
             System.out.println("la combinaison etait :"+ Arrays.toString(bot.getCombinaisonSecrete()));
         }
     }

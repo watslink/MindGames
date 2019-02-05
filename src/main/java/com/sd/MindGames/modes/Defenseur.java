@@ -25,7 +25,7 @@ public class Defenseur extends Mode {
         }
 
         if (!win) {
-            System.out.println("L'ordinateur a perdu, vous avez gagné!");
+            System.out.println(bot.getNom()+" a perdu, "+player.getNom()+" a gagné!");
         }
 
         bot.effacerMemoireBotPlayer();
