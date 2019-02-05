@@ -23,12 +23,12 @@ public class Challenger extends Mode {
 
         while (i < game.getNombreEssais() && !win) {
             setPlayerReponseProposee();
-            checkPlayerReponseProposee(bot,player);
+            checkPlayerReponseProposee(ordinateur, joueur);
             i++;
         }
         if (!win) {
-            System.out.println(player.getNom()+" a perdu!");
-            System.out.println("la combinaison etait :"+ Arrays.toString(bot.getCombinaisonSecrete()));
+            System.out.println(joueur.getNom()+" a perdu!");
+            System.out.println("la combinaison etait :"+ Arrays.toString(ordinateur.getCombinaisonSecrete()));
         }
     }
 }

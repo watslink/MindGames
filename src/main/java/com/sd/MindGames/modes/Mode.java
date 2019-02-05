@@ -13,14 +13,14 @@ public abstract class Mode {
     protected Game game;
     protected Scanner sc = new Scanner(System.in);
     protected boolean win;
-    protected Player player;
-    protected BotPlayer bot;
+    protected Player joueur;
+    protected BotPlayer ordinateur;
 
 
     public Mode(Game newGame) {
         game = newGame;
-        player = new Player("Joueur");
-        bot = new BotPlayer("Ordinateur");
+        joueur = new Player("Joueur");
+        ordinateur = new BotPlayer("Ordinateur");
         game.afficherRegles();
 
     }
@@ -29,24 +29,24 @@ public abstract class Mode {
 
     protected void setPlayerCombinaisonSecrete() {
         System.out.println("Veuillez entrer une combinaison secrète: ");
-        player.setCombinaisonSecrete(AquisitionEtVerificationCombinaison());
+        joueur.setCombinaisonSecrete(AquisitionEtVerificationCombinaison());
     }
 
     protected void setBotPlayerCombinaisonSecrete() {
-        bot.setCombinaisonSecrete(bot.creerCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
+        ordinateur.setCombinaisonSecrete(ordinateur.creerCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
     }
 
     protected void setPlayerReponseProposee() {
         System.out.println("Votre proposition: ");
 
-        player.setReponseProposee(AquisitionEtVerificationCombinaison());
+        joueur.setReponseProposee(AquisitionEtVerificationCombinaison());
 
     }
 
     protected void setBotPlayerReponseProposee() {
-        bot.setReponseProposee(bot.creerCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
+        ordinateur.setReponseProposee(ordinateur.creerCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
 
-        System.out.println("Proposition du Bot: " + Arrays.toString(bot.getReponseProposee()));
+        System.out.println("Proposition du Bot: " + Arrays.toString(ordinateur.getReponseProposee()));
     }
 
     protected void checkPlayerReponseProposee(Player defenseur, Player attaquant) {
@@ -103,7 +103,7 @@ public abstract class Mode {
 
     protected void afficherCombinaisonSecreteSiDevMode() {
         if (Config.isDevMode() ) {
-            System.out.println("Combinaison secrete :" + Arrays.toString(bot.getCombinaisonSecrete()));
+            System.out.println("Combinaison secrete :" + Arrays.toString(ordinateur.getCombinaisonSecrete()));
         }
     }
 }

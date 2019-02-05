@@ -23,16 +23,16 @@ public class Duel extends Mode {
 
         while (i < game.getNombreEssais() && !win) {
 
-            if (!win) {
-                setPlayerReponseProposee();
-                checkPlayerReponseProposee(bot, player);
-            }
+
+            setPlayerReponseProposee();
+            checkPlayerReponseProposee(ordinateur, joueur);
+
 
             if (!win) {
                 setBotPlayerReponseProposee();
-                checkPlayerReponseProposee(player, bot);
-                if(win){
-                    System.out.println("la combinaison etait :"+ Arrays.toString(bot.getCombinaisonSecrete()));
+                checkPlayerReponseProposee(joueur, ordinateur);
+                if (win) {
+                    System.out.println("la combinaison etait :" + Arrays.toString(ordinateur.getCombinaisonSecrete()));
                 }
             }
             i++;
@@ -40,9 +40,9 @@ public class Duel extends Mode {
 
         if (!win) {
             System.out.println("Egalité!!");
-            System.out.println("la combinaison etait :"+ Arrays.toString(bot.getCombinaisonSecrete()));
+            System.out.println("la combinaison etait :" + Arrays.toString(ordinateur.getCombinaisonSecrete()));
         }
 
-        bot.effacerMemoireBotPlayer();
+        ordinateur.effacerMemoireBotPlayer();
     }
 }

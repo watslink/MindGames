@@ -20,14 +20,14 @@ public class Defenseur extends Mode {
 
         while (i < game.getNombreEssais() && !win) {
             setBotPlayerReponseProposee();
-            checkPlayerReponseProposee(player, bot);
+            checkPlayerReponseProposee(joueur, ordinateur);
             i++;
         }
 
         if (!win) {
-            System.out.println(bot.getNom()+" a perdu, "+player.getNom()+" a gagné!");
+            System.out.println(ordinateur.getNom()+" a perdu, "+ joueur.getNom()+" a gagné!");
         }
 
-        bot.effacerMemoireBotPlayer();
+        ordinateur.effacerMemoireBotPlayer();
     }
 }
