@@ -31,15 +31,15 @@ public abstract class Mode {
     public abstract void start();
 
     /**
-     * aquisition de la combinaison secrète du joueur
+     * acquisition de la combinaison secrète du joueur
      */
     protected void setPlayerCombinaisonSecrete() {
         System.out.println("Veuillez entrer une combinaison secrète: ");
-        joueur.setCombinaisonSecrete(AquisitionEtVerificationCombinaison());
+        joueur.setCombinaisonSecrete(AcquisitionEtVerificationCombinaison());
     }
 
     /**
-     * aquisition de la combinaison secrète du bot
+     * acquisition de la combinaison secrète du bot
      */
     protected void setBotPlayerCombinaisonSecrete() {
         ordinateur.setCombinaisonSecrete(ordinateur.creerCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
@@ -47,17 +47,17 @@ public abstract class Mode {
 
 
     /**
-     * aquisition de la reponse proposée du joueur
+     * acquisition de la reponse proposée du joueur
      */
     protected void setPlayerReponseProposee() {
         System.out.println("Votre proposition: ");
 
-        joueur.setReponseProposee(AquisitionEtVerificationCombinaison());
+        joueur.setReponseProposee(AcquisitionEtVerificationCombinaison());
 
     }
 
     /**
-     * aquisition de la reponse proposée du bot
+     * acquisition de la reponse proposée du bot
      */
     protected void setBotPlayerReponseProposee() {
         ordinateur.setReponseProposee(ordinateur.creerCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
@@ -85,10 +85,10 @@ public abstract class Mode {
     }
 
     /**
-     * aquisition et verification du format de la combinaison proposée
+     * acquisition et verification du format de la combinaison proposée
      * @return
      */
-    private int[] AquisitionEtVerificationCombinaison() {
+    private int[] AcquisitionEtVerificationCombinaison() {
 
         while (true) {
             int[] combiProposee = convertirStringEnTabInt(sc.nextLine());
