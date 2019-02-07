@@ -48,7 +48,6 @@ public class MastermindGame extends Game {
             }
         }
 
-
         if (valeurOk == longueurCombinaison) {
             return getVICTOIRE();
         } else {

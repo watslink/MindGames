@@ -7,7 +7,6 @@ import java.util.Properties;
 public class PropertiesUtils {
 
     static private Properties PROP = getProperties();
-    static private String FILE_NAME="config.properties";
 
     /**
      * Recuperation d'un Properties à partir d'un fichier
@@ -17,7 +16,7 @@ public class PropertiesUtils {
         Properties prop = new Properties();
         InputStream ip;
         try {
-            ip = ClassLoader.getSystemResourceAsStream(FILE_NAME);
+            ip = ClassLoader.getSystemResourceAsStream("config.properties");
             prop.load(ip);
         } catch (IOException e) {
             e.printStackTrace();
