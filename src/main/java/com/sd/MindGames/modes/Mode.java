@@ -61,7 +61,11 @@ public abstract class Mode {
      */
     protected void setBotPlayerReponseProposee() {
         ordinateur.setReponseProposee(ordinateur.creerCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
-
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("Proposition du Bot: " + Arrays.toString(ordinateur.getReponseProposee()));
     }
 
