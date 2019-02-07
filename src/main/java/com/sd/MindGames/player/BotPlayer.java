@@ -12,6 +12,12 @@ public class BotPlayer extends Player {
         super(namePlayer);
     }
 
+    /**
+     * creation d'un combinaison aleatoire selon une longueur et un nombre de chiffres différents donnés
+     * @param longeurCombinaison
+     * @param nombreChiffresDifferents
+     * @return
+     */
     public int[] creerCombinaisonAleatoire(int longeurCombinaison, int nombreChiffresDifferents) {
 
         int[] combinaisonAleatoire = new int[longeurCombinaison];
@@ -20,13 +26,18 @@ public class BotPlayer extends Player {
             for (int i = 0; i < longeurCombinaison; i++) {
                 combinaisonAleatoire[i] = r.nextInt(nombreChiffresDifferents);
             }
-        } while (!testSiCombinaisonNonUtilisee(combinaisonAleatoire));
+        } while (!verificationSiCombinaisonNonUtilisee(combinaisonAleatoire));
 
         listOfCombinaisonsUtilisees.add(combinaisonAleatoire);
         return combinaisonAleatoire;
     }
 
-    private boolean testSiCombinaisonNonUtilisee(int[] combinaisonAleatoire) {
+    /**
+     * verification que la combinaison n'est pas été utilisée
+     * @param combinaisonAleatoire
+     * @return
+     */
+    private boolean verificationSiCombinaisonNonUtilisee(int[] combinaisonAleatoire) {
         for (int[] combinaisonUtilise : listOfCombinaisonsUtilisees) {
             if (combinaisonAleatoire == combinaisonUtilise) {
                 return false;
@@ -35,6 +46,9 @@ public class BotPlayer extends Player {
         return true;
     }
 
+    /**
+     * efface la mémoire du Bot
+     */
     public void effacerMemoireBotPlayer() {
         listOfCombinaisonsUtilisees.clear();
     }

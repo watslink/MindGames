@@ -1,5 +1,8 @@
 package com.sd.MindGames.utils;
 
+/**
+ * Classe de Configuration
+ */
 public  class Config {
 
     private static boolean devMode=false;

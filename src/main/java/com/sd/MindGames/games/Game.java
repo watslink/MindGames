@@ -20,8 +20,17 @@ public abstract class Game {
         nombreEssaisActuel = 0;
     }
 
+    /**
+     * afficher les regles du jeu
+     */
     public abstract void afficherRegles();
 
+    /**
+     * comparaison de la reponse proposée par rapport à la combinaison secrète
+     * @param combinaisonSecrete
+     * @param reponseProposee
+     * @return
+     */
     public abstract String comparerCombinaisons(int[] combinaisonSecrete, int[] reponseProposee);
 
     public int getLongueurCombinaison() {

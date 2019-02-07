@@ -61,15 +61,21 @@ public class Main {
         }
     }
 
+    /**
+     * Texte d'introduction
+     */
     private static void introduction() {
         System.out.println("**************************");
         System.out.println("**Bienvenue à MindGames!**");
         System.out.println("**************************");
     }
 
+    /**
+     * Definit le choix du jeu
+     */
     private static void choixDuJeu() {
         do {
-            nbJeu=aquisitionChoixMenu(nbJeu);
+            nbJeu= aquisitionIntPourMenu(nbJeu);
         } while ((nbJeu != 1 && nbJeu != 2) || erreur);
 
         switch (nbJeu) {
@@ -82,9 +88,12 @@ public class Main {
         }
     }
 
+    /**
+     * Définit le choix du Mode
+     */
     private static void choixDuMode() {
         do {
-            nbMode=aquisitionChoixMenu(nbMode);
+            nbMode= aquisitionIntPourMenu(nbMode);
         } while ((nbMode != 1 && nbMode != 2 && nbMode != 3) || erreur);
 
         switch (nbMode) {
@@ -100,9 +109,12 @@ public class Main {
         }
     }
 
+    /**
+     * Definit le choix du menu rejouer
+     */
     private static void choixMenuRejouer() {
         do {
-            nbRejouer=aquisitionChoixMenu(nbRejouer);
+            nbRejouer= aquisitionIntPourMenu(nbRejouer);
         } while ((nbRejouer != 1 && nbRejouer != 2 && nbRejouer != 3) || erreur);
 
         switch (nbRejouer) {
@@ -120,6 +132,9 @@ public class Main {
         }
     }
 
+    /**
+     * Affichage du menu jeu
+     */
     private static void listeJeux() {
         System.out.println();
         System.out.println("Liste des jeux:");
@@ -127,6 +142,9 @@ public class Main {
         System.out.println("MasterMind : 2");
     }
 
+    /**
+     * Affichage du menu mode
+     */
     private static void listeModes() {
         System.out.println();
         System.out.println("Modes de jeu:");
@@ -135,6 +153,9 @@ public class Main {
         System.out.println("Defi: 3");
     }
 
+    /**
+     * Affichage du menu rejouer
+     */
     private static void listeRejouer() {
         System.out.println();
         System.out.println("Voulez vous rejouez?");
@@ -143,7 +164,12 @@ public class Main {
         System.out.println("Non : 3");
     }
 
-    private static int aquisitionChoixMenu(int nbMenu) {
+    /**
+     * aquisition d'un Int via un Scanner avec gestion  de InputMismatchException
+     * @param nbMenu
+     * @return
+     */
+    private static int aquisitionIntPourMenu(int nbMenu) {
         erreur = false;
         try {
             System.out.println("Votre choix?");

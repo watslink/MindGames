@@ -25,17 +25,30 @@ public abstract class Mode {
 
     }
 
+    /**
+     * methode de lancement du mode
+     */
     public abstract void start();
 
+    /**
+     * aquisition de la combinaison secrète du joueur
+     */
     protected void setPlayerCombinaisonSecrete() {
         System.out.println("Veuillez entrer une combinaison secrète: ");
         joueur.setCombinaisonSecrete(AquisitionEtVerificationCombinaison());
     }
 
+    /**
+     * aquisition de la combinaison secrète du bot
+     */
     protected void setBotPlayerCombinaisonSecrete() {
         ordinateur.setCombinaisonSecrete(ordinateur.creerCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
     }
 
+
+    /**
+     * aquisition de la reponse proposée du joueur
+     */
     protected void setPlayerReponseProposee() {
         System.out.println("Votre proposition: ");
 
@@ -43,12 +56,20 @@ public abstract class Mode {
 
     }
 
+    /**
+     * aquisition de la reponse proposée du bot
+     */
     protected void setBotPlayerReponseProposee() {
         ordinateur.setReponseProposee(ordinateur.creerCombinaisonAleatoire(game.getLongueurCombinaison(), game.getNombreChiffresDifferents()));
 
         System.out.println("Proposition du Bot: " + Arrays.toString(ordinateur.getReponseProposee()));
     }
 
+    /**
+     * controle de la reponse proposee par rapport à la combinaison secrète
+     * @param defenseur
+     * @param attaquant
+     */
     protected void checkPlayerReponseProposee(Player defenseur, Player attaquant) {
         String str = game.comparerCombinaisons(defenseur.getCombinaisonSecrete(), attaquant.getReponseProposee());
 
@@ -59,7 +80,10 @@ public abstract class Mode {
             System.out.println(str);
     }
 
-
+    /**
+     * aquisition et verification du format de la combinaison proposée
+     * @return
+     */
     private int[] AquisitionEtVerificationCombinaison() {
 
         while (true) {
@@ -73,6 +97,11 @@ public abstract class Mode {
         }
     }
 
+    /**
+     * converttion d'un String en tableau de Int
+     * @param str
+     * @return
+     */
     protected int[] convertirStringEnTabInt(String str) {
         int[] tab;
 
@@ -88,24 +117,27 @@ public abstract class Mode {
     }
 
     /**
-     *
-     * @param reponseProposee
+     *Verification de la longeueur de la combinaison proposée
+     * @param combinaisonProposee
      * @return
      */
-    protected boolean checkLongeurReponseProposee(int[] reponseProposee) {
-        if (reponseProposee==null) {
+    protected boolean checkLongeurReponseProposee(int[] combinaisonProposee) {
+        if (combinaisonProposee==null) {
             return false;
         }
-        if (reponseProposee.length != game.getLongueurCombinaison()){
+        if (combinaisonProposee.length != game.getLongueurCombinaison()){
             return false;
         }
-        for (int i = 0; i < reponseProposee.length; i++) {
-            if (reponseProposee[i] > (game.getNombreChiffresDifferents() - 1))
+        for (int i = 0; i < combinaisonProposee.length; i++) {
+            if (combinaisonProposee[i] > (game.getNombreChiffresDifferents() - 1))
                 return false;
         }
         return true;
     }
 
+    /**
+     * si le mode developpement est activé, affichage de la combinaison secrète du bot
+     */
     protected void afficherCombinaisonSecreteSiDevMode() {
         if (Config.isDevMode() ) {
             System.out.println("Combinaison secrete :" + Arrays.toString(ordinateur.getCombinaisonSecrete()));
