@@ -87,6 +87,11 @@ public abstract class Mode {
         }
     }
 
+    /**
+     *
+     * @param reponseProposee
+     * @return
+     */
     protected boolean checkLongeurReponseProposee(int[] reponseProposee) {
         if (reponseProposee==null) {
             return false;

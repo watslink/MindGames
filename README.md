@@ -53,7 +53,7 @@
 	 
 	+++++++ LANCEMENT DE L'APPLICATION ++++++++++
 
-    Java 11 est requis.
+    
 	Dans le repertoire de MindGames.jar entrer dans la console:
 	java -jar MindGames.jar
 	Pour lancer en mode develeppement:
