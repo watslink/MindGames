@@ -53,6 +53,7 @@ public class MastermindGame extends Game {
         } else {
             switch (valeurMalPlacee) {
                 case 0:
+                    reponseString += valeurMalPlacee + " présent, ";
                     break;
                 case 1:
                     reponseString += valeurMalPlacee + " présent, ";
@@ -63,6 +64,7 @@ public class MastermindGame extends Game {
             }
             switch (valeurOk) {
                 case 0:
+                    reponseString += valeurOk + " bien placé";
                     break;
                 case 1:
                     reponseString += valeurOk + " bien placé";
