@@ -150,7 +150,7 @@ public class Main {
         System.out.println("Modes de jeu:");
         System.out.println("Challenger: 1 ");
         System.out.println("Defenseur: 2");
-        System.out.println("Defi: 3");
+        System.out.println("Duel: 3");
     }
 
     /**
