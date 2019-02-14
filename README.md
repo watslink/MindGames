@@ -39,9 +39,12 @@
 
 	L'ordinateur et vous jouez tour à tour, le premier à trouver la combinaison secrète de l'autre a gagné
 
+    +++++++ CONFIGURATION IDE ++++++++++
+    
+    Le programme utiliste java 8
+    Les librairies necessaires sont présentes dans le dossier External Librairies
 
-
-	+++++++ CONFIGURATION ++++++++++
+	+++++++ CONFIGURATION JEU ++++++++++
 	
 	Le fichier config.porpeties permet de modifier:
 	-> La longueur de la combinaison à trouver : longeurCombinaison
