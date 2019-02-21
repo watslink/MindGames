@@ -12,8 +12,8 @@
 	Pour lancer en mode develeppement:
 	java -jar MindGames.jar -devMode
 
-	NB: le mode developpement peut être activé soit par le fichier config.properties ou au lancement de l'application
-	pour qu'il soir incatif il faut que devMode=false dans config.properties ET lancer le jeu en mode normal.
+	NB: le mode developpement peut être activé soit par le fichier config.properties soit au lancement de l'application
+	pour qu'il soit inactif il faut que devMode=false dans config.properties ET lancer le jeu en mode normal.
 	
 	 +++++++ CONFIGURATION IDE ++++++++++
     
@@ -65,6 +65,6 @@
 
 	L'ordinateur et vous jouez tour à tour, le premier à trouver la combinaison secrète de l'autre a gagné
 
-<
+
 	 
 	
