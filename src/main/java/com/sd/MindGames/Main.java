@@ -42,11 +42,11 @@ public class Main {
 
             playThisGame = true;
 
-            afficherListeJeux();
+            listeJeux();
 
             choixDuJeu();
 
-            afficherListeModes();
+            listeModes();
 
             choixDuMode();
 
@@ -54,7 +54,7 @@ public class Main {
 
             while (playThisGame) {
 
-                afficherListeRejouer();
+                listeRejouer();
 
                 choixMenuRejouer();
             }
@@ -135,7 +135,7 @@ public class Main {
     /**
      * Affichage du menu jeu
      */
-    private static void afficherListeJeux() {
+    private static void listeJeux() {
         System.out.println();
         System.out.println("Liste des jeux:");
         System.out.println("Recherche + ou - : 1");
@@ -145,7 +145,7 @@ public class Main {
     /**
      * Affichage du menu mode
      */
-    private static void afficherListeModes() {
+    private static void listeModes() {
         System.out.println();
         System.out.println("Modes de jeu:");
         System.out.println("Challenger: 1 ");
@@ -156,7 +156,7 @@ public class Main {
     /**
      * Affichage du menu rejouer
      */
-    private static void afficherListeRejouer() {
+    private static void listeRejouer() {
         System.out.println();
         System.out.println("Voulez vous rejouez?");
         System.out.println("Oui, à ce jeu : 1");

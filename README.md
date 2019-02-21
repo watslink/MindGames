@@ -65,8 +65,6 @@
 
 	L'ordinateur et vous jouez tour à tour, le premier à trouver la combinaison secrète de l'autre a gagné
 
-   
-
-	
+<
 	 
 	
